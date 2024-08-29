@@ -4,6 +4,9 @@
 import os
 import redis
 
+import warnings
+warnings.filterwarnings("ignore")
+
 # ===========================================
 # Initialize
 # ===========================================
@@ -44,9 +47,14 @@ while True:
     # ===========================================
 
     # Create a query and find the chunk that matches best
+    print("=================================================")
     print("What would you like to know about the document?")
+    print("-------------------------------------------------")
+
     #user_query = "What are Taylor Schneider's top 5 qualities?"
     user_query = input()
+    print("-------------------------------------------------")
+
 
     # Embed the query
     import requests

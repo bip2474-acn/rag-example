@@ -11,6 +11,10 @@ from dotenv import load_dotenv
 from qdrant_client import QdrantClient
 
 
+import warnings
+warnings.filterwarnings("ignore")
+
+
 class Agent:
   
   def __init__(self):
@@ -118,10 +122,12 @@ The question to answer is:
 
 agent = Agent()
 while True:
+  print("=================================================")
   print("What would you like to know about the document?")
+  print("-------------------------------------------------")
   user_query = input()
   #user_query = "What are Taylor Schneider's top 5 qualities?"
-
+  print("-------------------------------------------------")
   query_vector = agent.generate_embedding(user_query)
   relevant_chunks = agent.get_chunks_related_to_query(query_vector=query_vector, max_chunks=3)
   prompt = agent.generate_prompt(relevant_chunks=relevant_chunks, user_query=user_query)
