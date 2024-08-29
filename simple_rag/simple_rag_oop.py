@@ -31,7 +31,7 @@ class Agent:
     self.openai_client = OpenAI(
       api_key=self.openai_api_key,
     )
-    self.redis_client = redis.Redis(host='15.4.50.102', port=6379)
+    self.redis_client = redis.Redis(host=self.redis_api_host, port=self.redis_api_port)
 
   
   def generate_embedding(self, text):
